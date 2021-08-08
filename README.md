@@ -7,7 +7,7 @@ Latest features in nodejs, using typescript, express and mongodb
 yarn init // npm init
 ```
 
-1. Para nosso projeto, teremos 4 bibliotecas que ajudam bastante no momento de desenvolvimento da API.
+2. Para nosso projeto, teremos 4 bibliotecas que ajudam bastante no momento de desenvolvimento da API.
 - Debug
     - É um módulo que usaremos para evitar a chamada de console.log () durante o desenvolvimento de nosso aplicativo. Dessa forma, podemos filtrar facilmente as instruções de depuração durante a solução de problemas.
 - Winstonis
@@ -17,14 +17,14 @@ yarn init // npm init
 - Cors
     - Cors é uma parte do middleware Express.js que nos permite habilitar o compartilhamento de recursos de origem cruzada. Sem isso, nossa API só poderia ser usada em front-ends servidos exatamente no **mesmo** subdomínio de nosso back-end.
 
-1. É importante sabermos o porquê de utilizarmos cada biblioteca. Agora que entendemos, podemos fazer a **instalação**.
+3. É importante sabermos o porquê de utilizarmos cada biblioteca. Agora que entendemos, podemos fazer a **instalação**.
 
 ```jsx
 yarn add express debug winston express-winston cors
 // npm i express debug winston express-winston cors
 ```
 
-1. Além de instalarmos essas bibliotecas, temos algumas dependências de desenvolvimento que nos ajuda enquanto estamos produzindo nossa API.
+4. Além de instalarmos essas bibliotecas, temos algumas dependências de desenvolvimento que nos ajuda enquanto estamos produzindo nossa API.
 
 As dependências @types/bilbioteca se fazem necessárias por conta de estarmos utilizando Typescript. [Typescript](https://www.typescriptlang.org/) é a ferramenta de desenvolvimento que nos ajuda a escrever o melhor código, prevenindo erros inesperados quando a API estiver em produção.
 
@@ -33,7 +33,7 @@ yarn add @types/cors @types/express @types/debug source-map-support tslint types
 // npm i --save-dev @types/cors @types/express @types/debug source-map-support tslint typescript
 ```
 
-1. Feito isso, nosso package.json, deve estar da seguinte maneira:
+5. Feito isso, nosso package.json, deve estar da seguinte maneira:
 
 ```json
 "dependencies": {
@@ -53,7 +53,7 @@ yarn add @types/cors @types/express @types/debug source-map-support tslint types
 }
 ```
 
-1. Teremos nossa aplicação separada por módulos. Isto é, para cada parte de nossa aplicação, teremos uma estrutura específica. Em cada um dos módulos, teremos o seguinte modelo:
+6. Teremos nossa aplicação separada por módulos. Isto é, para cada parte de nossa aplicação, teremos uma estrutura específica. Em cada um dos módulos, teremos o seguinte modelo:
 
 - **Route configuration**
     - Para definir as rotas que nossa API aceitará.
@@ -66,7 +66,7 @@ yarn add @types/cors @types/express @types/debug source-map-support tslint types
 - **Controllers**
     - Para separar a configuração da rota (**Route configuration**) e o código final. Os **Controllers** chamam os **Services,** obtém o retorno e **dão uma resposta ao cliente**.
 
-1. Além dos módulos, temos as configurações padrões, que servem para a aplicação como um todo. Esse tipo de configuração, armazenaremos na pata **common**.
+7. Além dos módulos, temos as configurações padrões, que servem para a aplicação como um todo. Esse tipo de configuração, armazenaremos na pata **common**.
 
 ### Agora, vamos começar a desenhar a estrutura da aplicação.
 
