@@ -9,8 +9,13 @@ yarn init // npm init
 
 1. Para nosso projeto, teremos 4 bibliotecas que ajudam bastante no momento de desenvolvimento da API.
 - Debug
+    - É um módulo que usaremos para evitar a chamada de console.log () durante o desenvolvimento de nosso aplicativo. Dessa forma, podemos filtrar facilmente as instruções de depuração durante a solução de problemas.
 - Winstonis
+    - Responsável por registrar solicitações para nossa API e as respostas (e erros) retornadas.
+    - express-winston
+        - Integra-se diretamente com Express.js, de forma que todo o código de registro winston relacionado à API padrão já está feito.
 - Cors
+    - Cors é uma parte do middleware Express.js que nos permite habilitar o compartilhamento de recursos de origem cruzada. Sem isso, nossa API só poderia ser usada em front-ends servidos exatamente no **mesmo** subdomínio de nosso back-end.
 
 1. É importante sabermos o porquê de utilizarmos cada biblioteca. Agora que entendemos, podemos fazer a **instalação**.
 
@@ -51,10 +56,15 @@ yarn add @types/cors @types/express @types/debug source-map-support tslint types
 1. Teremos nossa aplicação separada por módulos. Isto é, para cada parte de nossa aplicação, teremos uma estrutura específica. Em cada um dos módulos, teremos o seguinte modelo:
 
 - **Route configuration**
+    - Para definir as rotas que nossa API aceitará.
 - **Services**
+    - Para tarefas que nosso back-end realizará. Por exemplo, consultas à banco de dados, conexão com serviços de terceiros etc.
 - **Middleware**
+    - Para realizar validações específicas ao meio de cada requisição. Por exemplo, uma validação de uma rota que necessita de um usuário logado para acessar.
 - **Models**
+    - Para definir os dados que o banco de dados receberá, isso nos ajuda a entender quais dados a API pode receber e enviar.
 - **Controllers**
+    - Para separar a configuração da rota (**Route configuration**) e o código final. Os **Controllers** chamam os **Services,** obtém o retorno e **dão uma resposta ao cliente**.
 
 1. Além dos módulos, temos as configurações padrões, que servem para a aplicação como um todo. Esse tipo de configuração, armazenaremos na pata **common**.
 
@@ -63,7 +73,9 @@ yarn add @types/cors @types/express @types/debug source-map-support tslint types
 Vamos trabalhar com uma API de usuários, então vamos criar duas pastas agora:
 
 - common
+    - Nossa configuração que percorre por toda a API.
 - users
+    - Nosso módulo de usuários, que vai conter toda a estrutura citada anteriormente.
 
 > Em common, criaremos nosso arquivo `common.routes.config.ts` de configuração de rota único, este servirá para todas as rotas dos módulos da aplicação.
 Neste arquivo, obrigaremos que todas rotas trabalhe com rotas da MESMA forma. Para isso, utilizamos a classe com `abstract`
