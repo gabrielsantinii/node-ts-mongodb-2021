@@ -1,3 +1,8 @@
+# node-ts-mongodb-2021
+## REST API utilizando as últimas features em Nodejs, utilizando Typescript, MongoDB e Expressjs.
+
+### PARTE 3 - Models (DB), Services, Controllers e Middlewares. 
+
 ### Na parte 1, abordamos as configurações iniciais, inicializando nossa API. Agora, é hora de adicionar funcionalidades à nossa aplicação, como: criar, atualizar, ler e exclur usuários (CRUD).
 
 ### Para isso, temos alguns passos a realizar:
