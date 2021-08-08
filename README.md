@@ -1,5 +1,5 @@
 # node-ts-mongodb-2021
-Latest features in nodejs, using typescript, express and mongodb
+## REST API utilizando as últimas features em nodejs, utilizando Typescript, MongoDB e Expressjs - PARTE 1
 
 1. Para iniciar o projeto, podemos dar o comando init.
 
@@ -59,14 +59,14 @@ yarn add @types/cors @types/express @types/debug source-map-support tslint types
     - Para definir as rotas que nossa API aceitará.
 - **Services**
     - Para tarefas que nosso back-end realizará. Por exemplo, consultas à banco de dados, conexão com serviços de terceiros etc.
-- **Middleware**
+- **Middlewares**
     - Para realizar validações específicas ao meio de cada requisição. Por exemplo, uma validação de uma rota que necessita de um usuário logado para acessar.
 - **Models**
     - Para definir os dados que o banco de dados receberá, isso nos ajuda a entender quais dados a API pode receber e enviar.
 - **Controllers**
     - Para separar a configuração da rota (**Route configuration**) e o código final. Os **Controllers** chamam os **Services,** obtém o retorno e **dão uma resposta ao cliente**.
 
-7. Além dos módulos, temos as configurações padrões, que servem para a aplicação como um todo. Esse tipo de configuração, armazenaremos na pata **common**.
+7. Além dos módulos, temos as configurações padrões, que servem para a aplicação como um todo. Esse tipo de configuração, armazenaremos na pasta **common**.
 
 ### Agora, vamos começar a desenhar a estrutura da aplicação.
 
@@ -75,7 +75,7 @@ Vamos trabalhar com uma API de usuários, então vamos criar duas pastas agora:
 - common
     - Nossa configuração que percorre por toda a API.
 - users
-    - Nosso módulo de usuários, que vai conter toda a estrutura citada anteriormente.
+    - Nosso módulo de usuários, que vai conter toda a estrutura citada anteriormente (Route configuration, Services, Middleware, Models, Controllers).
 
 > Em common, criaremos nosso arquivo `common.routes.config.ts` de configuração de rota único, este servirá para todas as rotas dos módulos da aplicação.
 Neste arquivo, obrigaremos que todas rotas trabalhe com rotas da MESMA forma. Para isso, utilizamos a classe com `abstract`
