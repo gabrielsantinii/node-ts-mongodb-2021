@@ -6,10 +6,13 @@
   "author": "Gabriel Santini",
   "license": "MIT",
   "dependencies": {
+    "@types/shortid": "^0.0.29",
+    "argon2": "^0.28.2",
     "cors": "^2.8.5",
     "debug": "^4.3.2",
     "express": "^4.17.1",
     "express-winston": "^4.1.0",
+    "shortid": "^2.2.16",
     "winston": "^3.3.3"
   },
   "devDependencies": {
