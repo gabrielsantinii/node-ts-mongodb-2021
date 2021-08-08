@@ -1,5 +1,5 @@
 # node-ts-mongodb-2021
-## REST API utilizando as últimas features em nodejs, utilizando Typescript, MongoDB e Expressjs - PARTE 1
+## REST API utilizando as últimas features em Nodejs, utilizando Typescript, MongoDB e Expressjs - PARTE 1
 
 1. Para iniciar o projeto, podemos dar o comando init.
 
