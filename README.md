@@ -7,7 +7,7 @@ Latest features in nodejs, using typescript, express and mongodb
 yarn init // npm init
 ```
 
-2. Para nosso projeto, teremos 4 bibliotecas que ajudam bastante no momento de desenvolvimento da API.
+2. Para nosso projeto, teremos 3 bibliotecas que ajudam bastante no momento de desenvolvimento da API.
 - Debug
     - É um módulo que usaremos para evitar a chamada de console.log () durante o desenvolvimento de nosso aplicativo. Dessa forma, podemos filtrar facilmente as instruções de depuração durante a solução de problemas.
 - Winstonis
@@ -88,9 +88,9 @@ export abstract class CommonRoutesConfig {
   app: express.Application;
   name: string;
 
-  constructor(*app*: express.Application, *name*: string) {
-    this.app = *app*;
-    this.name = *name*;
+  constructor(app: express.Application, name: string) {
+    this.app = app;
+    this.name = name;
     this.configureRoutes();
   }
   getName() {
@@ -110,8 +110,8 @@ import express from "express";
 
 // Reaproveita a common routes, visto que a common percorre como uma configuração entre a aplicação como um todo.
 export class UsersRoutes extends CommonRoutesConfig {
-  constructor(*app*: express.Application) {
-    super(*app*, "UsersRoutes");
+  constructor(app: express.Application) {
+    super(app, "UsersRoutes");
   }
 
   configureRoutes() {
