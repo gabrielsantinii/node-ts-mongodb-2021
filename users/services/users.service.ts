@@ -13,7 +13,7 @@ import UsersDao from "../daos/user.dao";
 class UsersService implements CRUD {
   // Em cada um dos serviços disponibilizados, temos o DTO relacionado. Isto para o banco de dados saber o tipo de dados que ele deve aceitar.
   // Todos os serviços são async (assíncronos), isto porque as requisições em banco têm um tempo de carregamento.
-  
+
   async create(resource: CreateUserDto) {
     return UsersDao.addUser(resource);
   }
@@ -24,11 +24,11 @@ class UsersService implements CRUD {
 
   // Limite e página caso tenhamos um front, por exemplo, e queremos carregar usuários por página (para não fica pesada a request).
   async list(limit: number, page: number) {
-    return UsersDao.getUsers();
+    return UsersDao.getUsers(limit, page);
   }
 
   async patchById(id: string, resource: PatchUserDto) {
-    return UsersDao.patchUserById(id, resource);
+    return UsersDao.updateUserById(id, resource);
   }
 
   async readById(id: string) {
@@ -36,7 +36,7 @@ class UsersService implements CRUD {
   }
 
   async putById(id: string, resource: PutUserDto) {
-    return UsersDao.putUserById(id, resource);
+    return UsersDao.updateUserById(id, resource);
   }
 
   async getUserByEmail(email: string) {
