@@ -1,4 +1,5 @@
 # node-ts-mongodb-2021
+<<<<<<< HEAD
 Latest features in nodejs, using typescript, express and mongodb
 
 1. Para iniciar o projeto, podemos dar o comando init.
@@ -220,3 +221,8 @@ Então, no package.json, adicionamos os seguintes scripts:
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 ```
+=======
+## REST API utilizando as últimas features em Nodejs, utilizando Typescript, MongoDB e Expressjs.
+
+### PARTE 3 - MongoDB, Autenticação, Docker e Testes automatizados (TDD).
+>>>>>>> 2d3e7f13a2730e14141c064d67a4487d3e607d93
