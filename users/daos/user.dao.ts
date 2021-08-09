@@ -94,7 +94,13 @@ class UsersDao {
   // Excluir um usuário, como referência seu ID.
   async removeUserById(userId: string) {
     return this.User.deleteOne({ _id: userId }).exec();
-}
+  }
+
+  async getUserByEmailWithPassword(email: string) {
+    return this.User.findOne({ email: email })
+      .select("_id email permissionFlags +password")
+      .exec();
+  }
 }
 
 export default new UsersDao();

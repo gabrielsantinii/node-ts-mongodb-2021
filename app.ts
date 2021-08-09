@@ -3,16 +3,23 @@ import * as http from "http";
 
 import * as winston from "winston";
 import * as expressWinston from "express-winston";
+import debug from "debug";
 import cors from "cors";
+import dotenv from "dotenv";
+
 import { CommonRoutesConfig } from "./common/common.routes.config";
 import { UsersRoutes } from "./users/users.routes.config";
-import debug from "debug";
+import { AuthRoutes } from "./auth/auth.routes.config";
 
 const app: express.Application = express();
 const server: http.Server = http.createServer(app);
 const port = 3000;
 const routes: Array<CommonRoutesConfig> = [];
 const debugLog: debug.IDebugger = debug("app");
+const dotenvResult = dotenv.config();
+if (dotenvResult.error) {
+  throw dotenvResult.error;
+}
 
 // Aqui estamos colocando JSON como middleware para que todas requests venham em JSON.
 app.use(express.json());
@@ -39,6 +46,7 @@ app.use(expressWinston.logger(loggerOptions));
 
 // Aqui adicionamos o módulo de usuários ao nosso array de rotas.
 routes.push(new UsersRoutes(app));
+routes.push(new AuthRoutes(app));
 
 const runningMessage = `Server is running!`;
 server.listen(port, () => {
